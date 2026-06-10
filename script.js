@@ -218,10 +218,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // メールの宛先と内容設定
-            const mailtoAddress = 'yh883bp@gmail.com';
+            const mailtoAddress = 'soba.shinano@gmail.com';
             const mailSubject = '【志な乃】ホームページお問い合わせ';
             
-            const mailBody = `蕎麦処 志な乃 お問い合わせ窓口 行\n\nホームページより以下のお問い合わせがありました。\n\n==================================\n【お名前】\n${name} 様\n\n【メールアドレス】\n${email}\n\n【ご年齢】\n${age} 歳\n\n【内容】\n${message}\n==================================\n\n※このメールはホームページのフォームより生成されました。\nそのまま送信ボタンを押してください。`;
+            const mailBody = `そば処 志な乃 お問い合わせ窓口 行\n\nホームページより以下のお問い合わせがありました。\n\n==================================\n【お名前】\n${name} 様\n\n【メールアドレス】\n${email}\n\n【ご年齢】\n${age} 歳\n\n【内容】\n${message}\n==================================\n\n※このメールはホームページのフォームより生成されました。\nそのまま送信ボタンを押してください。`;
 
             // mailto リンクの構築
             const mailtoUrl = `mailto:${mailtoAddress}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
