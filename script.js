@@ -240,4 +240,209 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    /* ==========================================================================
+       7. お品書き (MENU) タブ切り替え・カルーセル・画像ズーム
+       ========================================================================== */
+    // 7-1. タブ切り替え
+    const menuTabBtns = document.querySelectorAll('.menu-tab-btn');
+    const menuTabContents = document.querySelectorAll('.menu-tab-content');
+    const menuSection = document.getElementById('menu');
+
+    if (menuTabBtns.length > 0) {
+        menuTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-tab');
+
+                // アクティブクラスの切り替え
+                menuTabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                menuTabContents.forEach(content => {
+                    if (content.id === `menu-${targetTab}`) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+
+                // スムーズスクロール（お品書きエリアに場所を飛ばす）
+                if (menuSection) {
+                    const headerOffset = window.innerWidth > 1023 ? 50 : 80; // サイドバー/ヘッダーの高さ考慮
+                    const elementPosition = menuSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+    // 7-2. 定番メニューカルーセル
+    const menuTrack = document.querySelector('.menu-carousel-track');
+    const menuSlides = Array.from(menuTrack ? menuTrack.children : []);
+    const menuNextBtn = document.querySelector('.menu-carousel-btn.btn-right');
+    const menuPrevBtn = document.querySelector('.menu-carousel-btn.btn-left');
+    const menuDotsNav = document.querySelector('.menu-carousel-nav');
+    const menuDots = Array.from(menuDotsNav ? menuDotsNav.children : []);
+
+    let currentMenuIndex = 0;
+
+    const moveMenuToSlide = (track, targetIndex) => {
+        track.style.transform = 'translateX(-' + (targetIndex * 100) + '%)';
+        
+        // クラスの付け替え
+        track.querySelector('.current-slide').classList.remove('current-slide');
+        menuSlides[targetIndex].classList.add('current-slide');
+        
+        currentMenuIndex = targetIndex;
+    };
+
+    const updateMenuDots = (targetIndex) => {
+        const activeDot = menuDotsNav.querySelector('.active');
+        if (activeDot) activeDot.classList.remove('active');
+        if (menuDots[targetIndex]) menuDots[targetIndex].classList.add('active');
+    };
+
+    const hideShowMenuArrows = (targetIndex) => {
+        if (!menuPrevBtn || !menuNextBtn) return;
+        
+        if (targetIndex === 0) {
+            menuPrevBtn.classList.add('is-hidden');
+            menuNextBtn.classList.remove('is-hidden');
+        } else if (targetIndex === menuSlides.length - 1) {
+            menuPrevBtn.classList.remove('is-hidden');
+            menuNextBtn.classList.add('is-hidden');
+        } else {
+            menuPrevBtn.classList.remove('is-hidden');
+            menuNextBtn.classList.remove('is-hidden');
+        }
+    };
+
+    // 初期化状態の設定
+    if (menuSlides.length > 0) {
+        hideShowMenuArrows(0);
+    }
+
+    // 右クリック（次へ）
+    if (menuNextBtn) {
+        menuNextBtn.addEventListener('click', e => {
+            const nextIndex = currentMenuIndex + 1;
+            if (nextIndex < menuSlides.length) {
+                moveMenuToSlide(menuTrack, nextIndex);
+                updateMenuDots(nextIndex);
+                hideShowMenuArrows(nextIndex);
+            }
+        });
+    }
+
+    // 左クリック（前へ）
+    if (menuPrevBtn) {
+        menuPrevBtn.addEventListener('click', e => {
+            const prevIndex = currentMenuIndex - 1;
+            if (prevIndex >= 0) {
+                moveMenuToSlide(menuTrack, prevIndex);
+                updateMenuDots(prevIndex);
+                hideShowMenuArrows(prevIndex);
+            }
+        });
+    }
+
+    // ドットインジケータークリック
+    if (menuDotsNav) {
+        menuDotsNav.addEventListener('click', e => {
+            const targetDot = e.target.closest('button');
+            if (!targetDot) return;
+
+            const targetIndex = menuDots.indexOf(targetDot);
+            if (targetIndex !== -1) {
+                moveMenuToSlide(menuTrack, targetIndex);
+                updateMenuDots(targetIndex);
+                hideShowMenuArrows(targetIndex);
+            }
+        });
+    }
+
+    // カルーセルのスワイプ対応 (スマホ操作用)
+    let startX = 0;
+    let endX = 0;
+    
+    if (menuTrack) {
+        menuTrack.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+        
+        menuTrack.addEventListener('touchmove', e => {
+            endX = e.touches[0].clientX;
+        }, { passive: true });
+        
+        menuTrack.addEventListener('touchend', () => {
+            const threshold = 50; // スワイプと判定する距離(px)
+            const diff = startX - endX;
+            
+            if (diff > threshold) {
+                // 左スワイプ（次へ）
+                if (menuNextBtn && !menuNextBtn.classList.contains('is-hidden')) {
+                    menuNextBtn.click();
+                }
+            } else if (diff < -threshold) {
+                // 右スワイプ（前へ）
+                if (menuPrevBtn && !menuPrevBtn.classList.contains('is-hidden')) {
+                    menuPrevBtn.click();
+                }
+            }
+            // 値の初期化
+            startX = 0;
+            endX = 0;
+        });
+    }
+
+    // 7-3. 画像ズームモーダル
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalClose = document.getElementById('modal-close');
+    const zoomableImages = document.querySelectorAll('.menu-img-zoomable');
+
+    if (modal && modalImg) {
+        zoomableImages.forEach(img => {
+            img.addEventListener('click', () => {
+                modal.classList.add('show');
+                modal.setAttribute('aria-hidden', 'false');
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                
+                // モーダルオープン時は背景スクロールを防止
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeModal = () => {
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            // スクロール制限の解除
+            document.body.style.overflow = '';
+        };
+
+        // 閉じるボタンクリック
+        if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+        }
+
+        // モーダル背景クリック
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.classList.contains('modal-content-wrap') || e.target === modalImg) {
+                closeModal();
+            }
+        });
+
+        // ESCキー押下で閉じる
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+    }
 });

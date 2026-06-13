@@ -140,69 +140,84 @@
             <div class="section-container">
                 <div class="section-header">
                     <span class="section-subtitle">MENU</span>
-                    <h2 class="section-title">おすすめのお品書き</h2>
-                    <p class="section-intro">代表的なお品書きを５つご紹介します</p>
+                    <h2 class="section-title">お品書き</h2>
+                    <p class="section-intro">定番メニュー、ランチ、期間限定メニュー、ハッピーアワーをご用意しております。<br>（メニュー画像をタップすると拡大してご覧いただけます）</p>
                 </div>
 
-                <div class="menu-grid">
-                    <!-- Item 1: 天せいろ (PNG) -->
-                    <div class="menu-card fade-in">
-                        <div class="menu-card-img-wrap">
-                            <img src="img/天せいろ.png" alt="天せいろ">
-                        </div>
-                        <div class="menu-card-info">
-                            <h3 class="menu-card-name">天せいろ</h3>
-                        </div>
-                    </div>
-
-                    <!-- Item 2: 天ぷらそば (JPG) -->
-                    <div class="menu-card fade-in">
-                        <div class="menu-card-img-wrap">
-                            <img src="img/天ぷらそば.jpg" alt="天ぷらそば">
-                        </div>
-                        <div class="menu-card-info">
-                            <h3 class="menu-card-name">天ぷらそば</h3>
-                        </div>
-                    </div>
-
-                    <!-- Item 3: カツ丼セット (JPG) -->
-                    <div class="menu-card fade-in">
-                        <div class="menu-card-img-wrap">
-                            <img src="img/かつ丼セット.jpg" alt="カツ丼セット">
-                        </div>
-                        <div class="menu-card-info">
-                            <h3 class="menu-card-name">カツ丼セット</h3>
-                        </div>
-                    </div>
-
-                    <!-- Item 4: 天ぷらの盛り合わせ (PNG) -->
-                    <div class="menu-card fade-in">
-                        <div class="menu-card-img-wrap">
-                            <img src="img/天ぷらの盛り合わせ.png" alt="天ぷらの盛り合わせ">
-                        </div>
-                        <div class="menu-card-info">
-                            <h3 class="menu-card-name">天ぷらの盛り合わせ</h3>
-                        </div>
-                    </div>
-
-                    <!-- Item 5: 刺身盛り合わせ (JPG) -->
-                    <div class="menu-card fade-in">
-                        <div class="menu-card-img-wrap">
-                            <img src="img/刺身三点盛り.jpg" alt="刺身盛り合わせ">
-                        </div>
-                        <div class="menu-card-info">
-                            <h3 class="menu-card-name">刺身盛り合わせ</h3>
-                        </div>
-                    </div>
+                <!-- Menu Tabs -->
+                <div class="menu-tabs fade-in">
+                    <button class="menu-tab-btn active" data-tab="classic">定番メニュー</button>
+                    <button class="menu-tab-btn" data-tab="lunch">ランチメニュー</button>
+                    <button class="menu-tab-btn" data-tab="limited">期間限定メニュー</button>
+                    <button class="menu-tab-btn" data-tab="happyhour">ハッピーアワー</button>
                 </div>
 
-                <!-- Call to Action for Instagram -->
-                <div class="menu-more-area fade-in">
-                    <p class="menu-more-text">この他にも、季節の限定蕎麦やこだわりの一品料理、各種地酒を豊富に取り揃えております。</p>
-                    <a href="https://www.instagram.com/soba_shinano/" target="_blank" class="instagram-link-btn" id="btn-menu-instagram">
-                        <span>他メニューはInstagramをご確認ください</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    </a>
+                <!-- Menu Tab Contents -->
+                <div class="menu-tab-content-wrap fade-in">
+                    <!-- 定番メニュー (Classic Menu) -->
+                    <div class="menu-tab-content active" id="menu-classic">
+                        <div class="menu-carousel">
+                            <div class="menu-carousel-track-container">
+                                <ul class="menu-carousel-track">
+                                    <li class="menu-carousel-slide current-slide">
+                                        <div class="menu-image-container">
+                                            <img src="img/定番メニュー1.png" alt="定番メニュー 1" class="menu-img-zoomable">
+                                        </div>
+                                    </li>
+                                    <li class="menu-carousel-slide">
+                                        <div class="menu-image-container">
+                                            <img src="img/定番メニュー2.png" alt="定番メニュー 2" class="menu-img-zoomable">
+                                        </div>
+                                    </li>
+                                    <li class="menu-carousel-slide">
+                                        <div class="menu-image-container">
+                                            <img src="img/定番メニュー3.png" alt="定番メニュー 3" class="menu-img-zoomable">
+                                        </div>
+                                    </li>
+                                    <li class="menu-carousel-slide">
+                                        <div class="menu-image-container">
+                                            <img src="img/定番メニュー4.png" alt="定番メニュー 4" class="menu-img-zoomable">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="menu-carousel-btn btn-left is-hidden" aria-label="前へ">〈</button>
+                            <button class="menu-carousel-btn btn-right" aria-label="次へ">〉</button>
+                            <div class="menu-carousel-nav">
+                                <button class="menu-carousel-indicator active"></button>
+                                <button class="menu-carousel-indicator"></button>
+                                <button class="menu-carousel-indicator"></button>
+                                <button class="menu-carousel-indicator"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ランチメニュー (Lunch Menu) -->
+                    <div class="menu-tab-content" id="menu-lunch">
+                        <div class="menu-single-image">
+                            <div class="menu-image-container">
+                                <img src="img/ランチ.png" alt="ランチメニュー" class="menu-img-zoomable">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 期間限定メニュー (Limited Menu) -->
+                    <div class="menu-tab-content" id="menu-limited">
+                        <div class="menu-single-image">
+                            <div class="menu-image-container">
+                                <img src="img/期間限定.png" alt="期間限定メニュー" class="menu-img-zoomable">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ハッピーアワー (Happy Hour) -->
+                    <div class="menu-tab-content" id="menu-happyhour">
+                        <div class="menu-single-image">
+                            <div class="menu-image-container">
+                                <img src="img/ハッピーアワー.png" alt="ハッピーアワーメニュー" class="menu-img-zoomable">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -231,6 +246,65 @@
                                 <img src="img/店内2.jpg" alt="志な乃の店内風景 2">
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Food Gallery Section -->
+        <section id="food-gallery" class="food-gallery-section section-padding">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">RECOMMEND</span>
+                    <h2 class="section-title">おすすめのお料理</h2>
+                    <p class="section-intro">志な乃が自信を持ってお届けする、こだわりの逸品です。</p>
+                </div>
+
+                <div class="food-gallery-wrap fade-in">
+                    <div class="food-gallery-scroll">
+                        <!-- Item 1: カツ丼セット -->
+                        <div class="food-gallery-item">
+                            <div class="food-gallery-img-wrap">
+                                <img src="img/かつ丼セット.jpg" alt="カツ丼セット" class="menu-img-zoomable">
+                            </div>
+                            <h3 class="food-gallery-name">カツ丼セット</h3>
+                        </div>
+
+                        <!-- Item 2: 刺身三点盛り -->
+                        <div class="food-gallery-item">
+                            <div class="food-gallery-img-wrap">
+                                <img src="img/刺身三点盛り.jpg" alt="刺身三点盛り" class="menu-img-zoomable">
+                            </div>
+                            <h3 class="food-gallery-name">刺身三点盛り</h3>
+                        </div>
+
+                        <!-- Item 3: 天せいろ -->
+                        <div class="food-gallery-item">
+                            <div class="food-gallery-img-wrap">
+                                <img src="img/天せいろ.png" alt="天せいろ" class="menu-img-zoomable">
+                            </div>
+                            <h3 class="food-gallery-name">天せいろ</h3>
+                        </div>
+
+                        <!-- Item 4: 天ぷらそば -->
+                        <div class="food-gallery-item">
+                            <div class="food-gallery-img-wrap">
+                                <img src="img/天ぷらそば.jpg" alt="天ぷらそば" class="menu-img-zoomable">
+                            </div>
+                            <h3 class="food-gallery-name">天ぷらそば</h3>
+                        </div>
+
+                        <!-- Item 5: 天ぷらの盛り合わせ -->
+                        <div class="food-gallery-item">
+                            <div class="food-gallery-img-wrap">
+                                <img src="img/天ぷらの盛り合わせ.png" alt="天ぷらの盛り合わせ" class="menu-img-zoomable">
+                            </div>
+                            <h3 class="food-gallery-name">天ぷらの盛り合わせ</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="scroll-guide">
+                        <span>◀ 左右にスクロールできます ▶</span>
                     </div>
                 </div>
             </div>
@@ -370,6 +444,15 @@
         </footer>
 
     </main>
+
+    <!-- Image Zoom Modal -->
+    <div id="image-modal" class="image-modal" aria-hidden="true">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <div class="modal-content-wrap">
+            <img class="modal-content" id="modal-img" alt="拡大メニュー画像">
+        </div>
+        <div id="modal-caption" class="modal-caption"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>

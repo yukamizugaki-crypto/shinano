@@ -719,99 +719,283 @@ img {
     border-bottom: 1px solid var(--color-border-light);
 }
 
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
+/* タブボタン */
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 20px;
 }
 
-.menu-card {
-    background-color: var(--color-bg-card);
+.menu-tab-btn {
+    background: transparent;
     border: 1px solid var(--color-border-light);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: transform 0.3s ease;
-}
-
-.menu-card:hover {
-    transform: translateY(-5px);
-}
-
-.menu-card-img-wrap {
-    width: 100%;
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    background-color: #f0f0f0;
-}
-
-.menu-card-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.menu-card:hover .menu-card-img-wrap img {
-    transform: scale(1.05);
-}
-
-.menu-card-info {
-    padding: 18px 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-bg-card);
-}
-
-.menu-card-name {
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-align: center;
-    width: 100%;
-}
-
-/* Instagramボタン誘導 */
-.menu-more-area {
-    text-align: center;
-    border-top: 1px solid var(--color-border-light);
-    padding-top: 40px;
-    margin-top: 40px;
-}
-
-.menu-more-text {
-    font-size: 1.05rem;
-    margin-bottom: 25px;
-}
-
-.instagram-link-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-color: transparent;
-    color: var(--color-text-main);
+    color: var(--color-text-sub);
+    font-family: var(--font-jp);
     font-size: 1rem;
-    font-weight: 700;
-    padding: 10px 0;
-    border: none;
-    border-bottom: 1px solid var(--color-text-main);
-    letter-spacing: 0.1em;
+    font-weight: 500;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
 }
 
-.instagram-link-btn:hover {
+.menu-tab-btn:hover {
     color: var(--color-accent-red);
-    border-bottom-color: var(--color-accent-red);
+    border-color: var(--color-accent-red);
 }
 
-.instagram-link-btn svg {
-    transition: transform 0.3s ease;
+.menu-tab-btn.active {
+    background-color: var(--color-accent-red);
+    color: #ffffff;
+    border-color: var(--color-accent-red);
+    font-weight: 700;
 }
 
-.instagram-link-btn:hover svg {
-    transform: scale(1.2);
+/* タブコンテンツ */
+.menu-tab-content-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.menu-tab-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.menu-tab-content.active {
+    display: block;
+    opacity: 1;
+}
+
+/* メニュー画像表示の基本スタイル */
+.menu-image-container {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    cursor: zoom-in;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 虫眼鏡アイコンのインジケータ（ホバー時） */
+.menu-image-container::after {
+    content: "🔎 拡大表示";
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    background-color: rgba(36, 36, 36, 0.85);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+}
+
+.menu-image-container:hover::after {
+    opacity: 1;
+}
+
+.menu-img-zoomable {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 80vh;
+    transition: transform 0.4s ease;
+}
+
+.menu-image-container:hover .menu-img-zoomable {
+    transform: scale(1.02);
+}
+
+/* 1枚画像のメニュー用 */
+.menu-single-image {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 定番メニュー用カルーセル */
+.menu-carousel {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.menu-carousel-track-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.menu-carousel-track {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+}
+
+.menu-carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+}
+
+/* カルーセル操作ボタン */
+.menu-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--color-border-light);
+    color: var(--color-text-main);
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.menu-carousel-btn:hover {
+    background-color: var(--color-accent-red);
+    color: #ffffff;
+    border-color: var(--color-accent-red);
+}
+
+.menu-carousel-btn.btn-left {
+    left: -25px;
+}
+
+.menu-carousel-btn.btn-right {
+    right: -25px;
+}
+
+.menu-carousel-btn.is-hidden {
+    display: none;
+}
+
+/* インジケータードット */
+.menu-carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.menu-carousel-indicator {
+    background-color: var(--color-border-light);
+    border: none;
+    width: 30px;
+    height: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-carousel-indicator.active {
+    background-color: var(--color-accent-red);
+    width: 45px;
+}
+
+/* 画像拡大用モーダル */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(12, 12, 12, 0.95);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.image-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content-wrap {
+    position: relative;
+    max-width: 95%;
+    max-height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.8);
+    animation-name: zoomIn;
+    animation-duration: 0.3s;
+    cursor: zoom-out;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.95)}
+    to {transform: scale(1)}
+}
+
+/* モーダル閉じるボタン */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 300;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10001;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--color-accent-red);
+}
+
+.modal-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
 }
 
 /* --------------------------------------------------------------------------
@@ -890,6 +1074,99 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   8.5. お料理ギャラリーセクション (Food Gallery)
+   -------------------------------------------------------------------------- */
+.food-gallery-section {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.food-gallery-wrap {
+    width: 100%;
+    position: relative;
+}
+
+.food-gallery-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-gold) transparent;
+}
+
+.food-gallery-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.food-gallery-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.food-gallery-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-accent-gold);
+}
+
+.food-gallery-item {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.food-gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.food-gallery-img-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.food-gallery-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.food-gallery-item:hover .food-gallery-img-wrap img {
+    transform: scale(1.05);
+}
+
+.food-gallery-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 15px 10px;
+    border-top: 1px solid var(--color-border-light);
+    background-color: var(--color-bg-card);
+    letter-spacing: 0.05em;
+}
+
+.scroll-guide {
+    text-align: center;
+    margin-top: 15px;
+    color: var(--color-text-sub);
+    font-size: 0.85rem;
+    font-family: var(--font-jp);
+    letter-spacing: 0.08em;
+}
+
+@media screen and (max-width: 767px) {
+    .food-gallery-item {
+        flex: 0 0 260px;
+    }
 }
 
 /* --------------------------------------------------------------------------
@@ -1357,8 +1634,43 @@ img {
         line-height: 1.6;
     }
     
-    .menu-grid {
-        grid-template-columns: 1fr;
+    /* メニューカルーセルとタブのモバイル調整 */
+    .menu-tabs {
+        gap: 8px;
+        padding-bottom: 12px;
+    }
+    
+    .menu-tab-btn {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+    }
+    
+    .menu-carousel {
+        padding: 0 10px;
+    }
+    
+    .menu-carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .menu-carousel-btn.btn-left {
+        left: 5px;
+    }
+    
+    .menu-carousel-btn.btn-right {
+        right: 5px;
+    }
+    
+    .menu-image-container {
+        padding: 10px;
+    }
+    
+    .menu-image-container::after {
+        display: none; /* スマホではホバーが無いので非表示 */
     }
     
     .info-table th {
@@ -1394,13 +1706,5 @@ img {
     .footer-nav {
         grid-template-columns: 1fr;
         gap: 12px;
-    }
-
-    .instagram-link-btn {
-        font-size: 0.85rem;
-        letter-spacing: 0.05em;
-        white-space: nowrap;
-        max-width: 100%;
-        gap: 8px;
     }
 }
