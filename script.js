@@ -12,21 +12,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const loadingScreen = document.getElementById('loading');
         const heroSection = document.getElementById('home');
         
+        // セッションストレージで初回アクセス判定
+        const hasVisited = sessionStorage.getItem('hasVisitedShinano');
+        
         if (loadingScreen) {
-            // 2.4秒経過後（ロゴアニメーション完了後）に襖を開く
-            setTimeout(() => {
-                loadingScreen.classList.add('loaded');
-                
-                // 襖が開くのと同時にヒーローセクションのアニメーションを開始
+            if (hasVisited) {
+                // 既にアクセス済みの場合はローディング画面を即時非表示
+                loadingScreen.classList.add('loaded', 'loaded-done');
                 if (heroSection) {
                     heroSection.classList.add('hero-animate');
                 }
-                
-                // 襖が開き終わる時間（1.2秒後）にローディング要素を非表示（display: none）化
+            } else {
+                // 初回アクセスの場合はアニメーションを実行
+                sessionStorage.setItem('hasVisitedShinano', 'true');
+                // 2.4秒経過後（ロゴアニメーション完了後）に襖を開く
                 setTimeout(() => {
-                    loadingScreen.classList.add('loaded-done');
-                }, 1200);
-            }, 2400);
+                    loadingScreen.classList.add('loaded');
+                    
+                    // 襖が開くのと同時にヒーローセクションのアニメーションを開始
+                    if (heroSection) {
+                        heroSection.classList.add('hero-animate');
+                    }
+                    
+                    // 襖が開き終わる時間（1.2秒後）にローディング要素を非表示（display: none）化
+                    setTimeout(() => {
+                        loadingScreen.classList.add('loaded-done');
+                    }, 1200);
+                }, 2400);
+            }
         } else {
             // 万が一ローディング画面がない場合は即座にヒーロー演出を適用
             if (heroSection) {

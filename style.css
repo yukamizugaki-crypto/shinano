@@ -1402,6 +1402,59 @@ img {
     color: var(--color-accent-red);
 }
 
+.form-note {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--color-accent-red);
+    font-weight: 700;
+    margin-top: 15px;
+    letter-spacing: 0.05em;
+}
+
+/* 予約ボックス */
+.reservation-wrap {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    padding: 40px;
+    text-align: center;
+}
+
+.reservation-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+}
+
+.reservation-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 350px;
+    background-color: var(--color-accent-red);
+    color: #ffffff;
+    border: 2px solid var(--color-accent-red);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 18px 40px;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    gap: 10px;
+}
+
+.reservation-btn:hover {
+    background-color: transparent;
+    color: var(--color-accent-red);
+}
+
+.btn-tel-icon {
+    font-size: 1.25rem;
+}
+
 /* --------------------------------------------------------------------------
    11. フッター (Footer)
    -------------------------------------------------------------------------- */
@@ -1479,6 +1532,259 @@ img {
     font-size: 0.85rem;
     color: #777777;
     letter-spacing: 0.05em;
+}
+
+/* お品書き下部のInstagram案内 */
+.menu-instagram-note {
+    text-align: center;
+    margin-top: 50px;
+    padding: 25px 20px;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.instagram-note-text {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    margin: 0;
+    line-height: 1.8;
+}
+
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    color: var(--color-accent-red);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    padding: 4px 8px;
+    gap: 8px;
+}
+
+.instagram-link:hover {
+    color: var(--color-accent-gold);
+    border-bottom-color: var(--color-accent-gold);
+    transform: translateY(-1px);
+}
+
+.instagram-link .insta-icon {
+    font-size: 1.2rem;
+}
+
+.instagram-link .arrow-right {
+    transition: transform 0.3s ease;
+}
+
+.instagram-link:hover .arrow-right {
+    transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   5.5. お知らせセクション (News)
+   -------------------------------------------------------------------------- */
+.news-section {
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.news-list {
+    max-width: 800px;
+    margin: 0 auto;
+    border-top: 1px solid var(--color-border);
+    max-height: 380px; /* 約3〜4記事分の高さに固定 */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-gold) transparent;
+}
+
+/* お知らせエリア専用スクロールバー */
+.news-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.news-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.news-list::-webkit-scrollbar-thumb {
+    background: var(--color-accent-gold);
+}
+
+.news-item {
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.news-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px 15px;
+    gap: 30px;
+    transition: all 0.3s ease;
+}
+
+.news-link:hover {
+    background-color: rgba(163, 34, 34, 0.03); /* 朱赤の非常に薄い背景 */
+}
+
+.news-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 200px;
+}
+
+.news-date {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-sub);
+    letter-spacing: 0.05em;
+}
+
+.news-category {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: var(--color-accent-gold);
+    color: #ffffff;
+    padding: 3px 10px;
+    letter-spacing: 0.05em;
+}
+
+.news-item-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.news-arrow {
+    font-size: 1.1rem;
+    color: var(--color-accent-red);
+    transition: transform 0.3s ease;
+}
+
+.news-link:hover .news-arrow {
+    transform: translateX(6px);
+}
+
+/* --------------------------------------------------------------------------
+   10.5. お知らせ詳細ページ (News Detail Page)
+   -------------------------------------------------------------------------- */
+.news-detail-body {
+    background-color: var(--color-bg-base);
+    background-image: url('img/背景.png');
+    background-repeat: repeat;
+    color: var(--color-text-main);
+}
+
+.news-detail-header {
+    padding: 30px 20px;
+    border-bottom: 1px solid var(--color-border-light);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.news-detail-logo-wrap {
+    max-width: 120px;
+}
+
+.news-detail-logo {
+    width: 100%;
+    height: auto;
+}
+
+.news-detail-main {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.news-detail-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-light);
+    padding: 50px 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.news-detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.news-detail-date {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-sub);
+    letter-spacing: 0.05em;
+}
+
+.news-detail-category {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: var(--color-accent-gold);
+    color: #ffffff;
+    padding: 3px 10px;
+    letter-spacing: 0.05em;
+}
+
+.news-detail-title {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-text-main);
+    line-height: 1.4;
+    border-bottom: 2px solid var(--color-accent-red);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+}
+
+.news-detail-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text-main);
+}
+
+.news-detail-content p {
+    margin-bottom: 25px;
+}
+
+.news-detail-content p:last-child {
+    margin-bottom: 0;
+}
+
+.news-detail-back-wrap {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--color-border-light);
+    text-align: center;
+}
+
+.news-detail-back-btn {
+    display: inline-block;
+    border: 1px solid var(--color-text-main);
+    padding: 12px 30px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+}
+
+.news-detail-back-btn:hover {
+    background-color: var(--color-text-main);
+    color: #ffffff;
 }
 
 /* --------------------------------------------------------------------------
@@ -1671,6 +1977,64 @@ img {
     
     .menu-image-container::after {
         display: none; /* スマホではホバーが無いので非表示 */
+    }
+
+    .menu-instagram-note {
+        margin-top: 35px;
+        padding: 20px 15px;
+    }
+    
+    .instagram-note-text {
+        font-size: 0.95rem;
+    }
+
+    .reservation-wrap {
+        margin-bottom: 30px;
+        padding: 30px 20px;
+    }
+    
+    .reservation-text {
+        font-size: 1rem;
+    }
+    
+    .reservation-btn {
+        font-size: 1rem;
+        padding: 15px 20px;
+    }
+
+    /* お知らせエリア・詳細のモバイル調整 */
+    .news-link {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 20px 10px;
+    }
+    
+    .news-meta {
+        min-width: auto;
+    }
+    
+    .news-item-title {
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .news-detail-main {
+        margin: 30px auto;
+    }
+    
+    .news-detail-card {
+        padding: 30px 20px;
+    }
+    
+    .news-detail-title {
+        font-size: 1.5rem;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .news-detail-content {
+        font-size: 1rem;
     }
     
     .info-table th {

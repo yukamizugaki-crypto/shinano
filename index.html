@@ -51,6 +51,7 @@
         </div>
         <ul>
             <li><a href="#home" class="mobile-nav-link">トップ</a></li>
+            <li><a href="#news" class="mobile-nav-link">お知らせ</a></li>
             <li><a href="#concept" class="mobile-nav-link">こだわり</a></li>
             <li><a href="#menu" class="mobile-nav-link">お品書き</a></li>
             <li><a href="#gallery" class="mobile-nav-link">店内の様子</a></li>
@@ -73,11 +74,12 @@
         <nav class="sidebar-nav">
             <ul>
                 <li><a href="#home" class="sidebar-link active"><span class="nav-num">一</span><span class="nav-txt">トップ</span></a></li>
-                <li><a href="#concept" class="sidebar-link"><span class="nav-num">二</span><span class="nav-txt">こだわり</span></a></li>
-                <li><a href="#menu" class="sidebar-link"><span class="nav-num">三</span><span class="nav-txt">お品書き</span></a></li>
-                <li><a href="#gallery" class="sidebar-link"><span class="nav-num">四</span><span class="nav-txt">店内の様子</span></a></li>
-                <li><a href="#info" class="sidebar-link"><span class="nav-num">五</span><span class="nav-txt">店舗・地図</span></a></li>
-                <li><a href="#contact" class="sidebar-link"><span class="nav-num">六</span><span class="nav-txt">お問合せ</span></a></li>
+                <li><a href="#news" class="sidebar-link"><span class="nav-num">二</span><span class="nav-txt">お知らせ</span></a></li>
+                <li><a href="#concept" class="sidebar-link"><span class="nav-num">三</span><span class="nav-txt">こだわり</span></a></li>
+                <li><a href="#menu" class="sidebar-link"><span class="nav-num">四</span><span class="nav-txt">お品書き</span></a></li>
+                <li><a href="#gallery" class="sidebar-link"><span class="nav-num">五</span><span class="nav-txt">店内の様子</span></a></li>
+                <li><a href="#info" class="sidebar-link"><span class="nav-num">六</span><span class="nav-txt">店舗・地図</span></a></li>
+                <li><a href="#contact" class="sidebar-link"><span class="nav-num">七</span><span class="nav-txt">お問合せ</span></a></li>
             </ul>
         </nav>
         <div class="sidebar-footer">
@@ -112,6 +114,31 @@
             </div>
         </section>
 
+        <!-- News Section -->
+        <section id="news" class="news-section section-padding">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-subtitle">NEWS</span>
+                    <h2 class="section-title">お知らせ</h2>
+                </div>
+                
+                <div class="news-list fade-in">
+                    <!-- News Item 1 -->
+                    <article class="news-item">
+                        <a href="news-detail-1.html" class="news-link">
+                            <div class="news-meta">
+                                <time datetime="2026-06-16" class="news-date">2026.06.16</time>
+                                <span class="news-category">お知らせ</span>
+                            </div>
+                            <h3 class="news-item-title">
+                                HPを公開しました<span class="news-arrow">→</span>
+                            </h3>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- Concept Section -->
         <section id="concept" class="concept-section section-padding">
             <div class="section-container">
@@ -141,42 +168,60 @@
                 <div class="section-header">
                     <span class="section-subtitle">MENU</span>
                     <h2 class="section-title">お品書き</h2>
-                    <p class="section-intro">定番メニュー、ランチ、期間限定メニュー、ハッピーアワーをご用意しております。</p>
+                    <p class="section-intro">季節メニュー、日替わりメニュー、通常メニュー、ハッピーアワーをご用意しております。</p>
                 </div>
 
                 <!-- Menu Tabs -->
                 <div class="menu-tabs fade-in">
-                    <button class="menu-tab-btn active" data-tab="classic">定番メニュー</button>
-                    <button class="menu-tab-btn" data-tab="lunch">ランチメニュー</button>
-                    <button class="menu-tab-btn" data-tab="limited">期間限定メニュー</button>
+                    <button class="menu-tab-btn active" data-tab="limited">季節メニュー</button>
+                    <button class="menu-tab-btn" data-tab="lunch">日替わりメニュー</button>
+                    <button class="menu-tab-btn" data-tab="classic">通常メニュー</button>
                     <button class="menu-tab-btn" data-tab="happyhour">ハッピーアワー</button>
                 </div>
 
                 <!-- Menu Tab Contents -->
                 <div class="menu-tab-content-wrap fade-in">
-                    <!-- 定番メニュー (Classic Menu) -->
-                    <div class="menu-tab-content active" id="menu-classic">
+                    <!-- 季節メニュー (Seasonal Menu) -->
+                    <div class="menu-tab-content active" id="menu-limited">
+                        <div class="menu-single-image">
+                            <div class="menu-image-container">
+                                <img src="img/期間限定.png" alt="季節メニュー" class="menu-img-zoomable">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 日替わりメニュー (Daily Menu) -->
+                    <div class="menu-tab-content" id="menu-lunch">
+                        <div class="menu-single-image">
+                            <div class="menu-image-container">
+                                <img src="img/ランチ.png" alt="日替わりメニュー" class="menu-img-zoomable">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 通常メニュー (Regular Menu) -->
+                    <div class="menu-tab-content" id="menu-classic">
                         <div class="menu-carousel">
                             <div class="menu-carousel-track-container">
                                 <ul class="menu-carousel-track">
                                     <li class="menu-carousel-slide current-slide">
                                         <div class="menu-image-container">
-                                            <img src="img/定番メニュー1.png" alt="定番メニュー 1" class="menu-img-zoomable">
+                                            <img src="img/定番メニュー1.png" alt="通常メニュー 1" class="menu-img-zoomable">
                                         </div>
                                     </li>
                                     <li class="menu-carousel-slide">
                                         <div class="menu-image-container">
-                                            <img src="img/定番メニュー2.png" alt="定番メニュー 2" class="menu-img-zoomable">
+                                            <img src="img/定番メニュー2.png" alt="通常メニュー 2" class="menu-img-zoomable">
                                         </div>
                                     </li>
                                     <li class="menu-carousel-slide">
                                         <div class="menu-image-container">
-                                            <img src="img/定番メニュー3.png" alt="定番メニュー 3" class="menu-img-zoomable">
+                                            <img src="img/定番メニュー3.png" alt="通常メニュー 3" class="menu-img-zoomable">
                                         </div>
                                     </li>
                                     <li class="menu-carousel-slide">
                                         <div class="menu-image-container">
-                                            <img src="img/定番メニュー4.png" alt="定番メニュー 4" class="menu-img-zoomable">
+                                            <img src="img/定番メニュー4.png" alt="通常メニュー 4" class="menu-img-zoomable">
                                         </div>
                                     </li>
                                 </ul>
@@ -192,24 +237,6 @@
                         </div>
                     </div>
 
-                    <!-- ランチメニュー (Lunch Menu) -->
-                    <div class="menu-tab-content" id="menu-lunch">
-                        <div class="menu-single-image">
-                            <div class="menu-image-container">
-                                <img src="img/ランチ.png" alt="ランチメニュー" class="menu-img-zoomable">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 期間限定メニュー (Limited Menu) -->
-                    <div class="menu-tab-content" id="menu-limited">
-                        <div class="menu-single-image">
-                            <div class="menu-image-container">
-                                <img src="img/期間限定.png" alt="期間限定メニュー" class="menu-img-zoomable">
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- ハッピーアワー (Happy Hour) -->
                     <div class="menu-tab-content" id="menu-happyhour">
                         <div class="menu-single-image">
@@ -218,6 +245,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Instagram Link Announcement -->
+                <div class="menu-instagram-note fade-in">
+                    <p class="instagram-note-text">
+                        その日のおすすめつまみメニューは<br class="mobile-br">
+                        <a href="https://www.instagram.com/soba_shinano/" target="_blank" rel="noopener noreferrer" class="instagram-link">
+                            Instagramよりご確認ください <span class="arrow-right">→</span>
+                        </a>
+                    </p>
                 </div>
             </div>
         </section>
@@ -402,6 +439,14 @@
                     <p class="section-intro">店舗へのご質問やご要望などは、下記フォームよりお問い合わせください。<br>必要事項をご記入の上、送信ボタンを押してください。</p>
                 </div>
 
+                <!-- Reservation Box -->
+                <div class="reservation-wrap fade-in">
+                    <p class="reservation-text">お電話でのご予約はこちらから</p>
+                    <a href="tel:047-475-2601" class="reservation-btn">
+                        <span class="btn-tel-icon">📞</span>ご予約はこちらから
+                    </a>
+                </div>
+
                 <div class="contact-form-wrap fade-in">
                     <form id="contact-form" class="contact-form">
                         <div class="form-group">
@@ -429,6 +474,7 @@
                                 <span>送信する (メール作成)</span>
                             </button>
                         </div>
+                        <p class="form-note">※ご予約は電話でのみ受け付けております。</p>
                     </form>
                 </div>
             </div>
