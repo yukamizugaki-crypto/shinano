@@ -1787,6 +1787,19 @@ img {
     color: #ffffff;
 }
 
+.news-detail-image-wrap {
+    margin-bottom: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.news-detail-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* --------------------------------------------------------------------------
    12. レスポンシブメディアクエリ
    -------------------------------------------------------------------------- */
